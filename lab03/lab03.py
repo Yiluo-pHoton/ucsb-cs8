@@ -15,9 +15,6 @@ def test_perimRect_2():
 def test_perimRect_3():
     assert perimRect(1.2, 4.4) == pytest.approx(11.2)
 
-def test_perimRect_4():
-    assert perimRect(0.4, 11.2) == pytest.approx(23.2)
-
 #rectangle area
 def areaRect(length, width):
     """
@@ -47,6 +44,12 @@ def test_isString_2():
 def test_isString_3():
     assert not isString(56789)
 
+def test_isString_4():
+    assert not isString(12)
+
+def test_isString_5():
+    assert isString("")
+
 #is number
 def isNumber(obj):
     return (type(obj) == int or type(obj) == float)
@@ -62,3 +65,7 @@ def test_isNumber_3():
 
 def test_isNumber_4():
     assert not isNumber([789, 67890, 123])
+
+def test_isNumber_5():
+    assert not isNumber("yui")
+
