@@ -3,6 +3,7 @@ import convert
 import sys
 
 if __name__ == "__main__":
+    print("This is the main block of lab04.py")
     if len(sys.argv) >= 2:
         fTempStr = sys.argv[1]
     else:

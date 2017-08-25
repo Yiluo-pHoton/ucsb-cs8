@@ -2,7 +2,7 @@ import math
 import pytest
 
 if __name__ == '__main__':
-    print('inside convert.py main')
+    print('This is the main block of convert.py')
 
 def fToC(temp):
     return (temp - 32) / 1.8
