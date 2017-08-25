@@ -8,7 +8,7 @@ if __name__ == "__main__":
         fTempStr = sys.argv[1]
     else:
         fTempStr = input("Please enter a Fahrenheit temperature: ")
-    print("You entered: " + fTempStr)
+    print("You entered: " , fTempStr)
     
     try:
         fTemp = float(fTempStr)
