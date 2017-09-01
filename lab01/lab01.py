@@ -73,6 +73,7 @@ def draw_1(height, width):
     t.goto(mid_x, top_y)
 
 def draw_lab01(height, width, init_x, init_y):
+    t.goto(init_x, init_y)
     myString = "yl2021"
     for i in range(1, 7):
         eval("draw_" + myString[i-1:i] + "(height, width)")
