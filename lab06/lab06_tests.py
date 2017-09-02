@@ -187,3 +187,97 @@ def test_isListOfEvenIntegers_11():
    assert isListOfEvenIntegers([])==True
 
 ###########
+
+from lab06 import totalLength
+
+def test_totalLength_1():
+   assert totalLength('1')==False
+
+def test_totalLength_2():
+   assert totalLength(['a','b'])==2
+
+def test_totalLength_3():
+   assert totalLength([])==0
+
+def test_totalLength_4():
+   assert totalLength(['Go','Gauchos'])==9
+
+def test_totalLength_5():
+   assert totalLength(['x','xxx','xxxx'])==8
+
+###########
+
+from lab06 import lengthOfEach
+
+def test_lengthOfEach_1():
+   assert lengthOfEach('1')==False
+
+def test_lengthOfEach_2():
+   assert lengthOfEach(['a','b']) == [1, 1]
+   
+def test_lengthOfEach_3():
+   assert lengthOfEach([])==[]
+   
+def test_lengthOfEach_4():
+   assert lengthOfEach(['Go','Gauchos'])==[2, 7]
+   
+def test_lengthOfEach_5():
+   assert lengthOfEach(['x','xxx','xxxx'])==[1, 3, 4]
+
+################
+
+from lab06 import countEvens
+
+def test_countEvens_1():
+   assert countEvens('1')==False
+   
+def test_countEvens_2():
+   assert countEvens(['a','b'])==False
+   
+def test_countEvens_3():
+   assert countEvens([])==0
+   
+def test_countEvens_4():
+   assert countEvens([1,2,3,4,5])==2
+   
+def test_countEvens_5():
+   assert countEvens([1])==0
+   
+def test_countEvens_6():
+   assert countEvens([3,2])==1
+   
+def test_countEvens_7():
+   assert countEvens([2,3,4])==2
+    
+#############
+
+from lab06 import onlyEvens
+
+def test_onlyEvens_1():
+   assert onlyEvens('1')==False
+
+def test_onlyEvens_2():
+   assert onlyEvens(['a','b'])==False
+
+def test_onlyEvens_3():
+   assert onlyEvens([])==[]
+
+def test_onlyEvens_4():
+   assert onlyEvens([1,2,3,4,5])==[2, 4]
+
+def test_onlyEvens_5():
+   assert onlyEvens([1])==[]
+
+def test_onlyEvens_6():
+   assert onlyEvens([1,3])==[]
+
+def test_onlyEvens_7():
+   assert onlyEvens([3,2])==[2]
+
+def test_onlyEvens_8():
+   assert onlyEvens([2,3,4])==[2, 4]
+
+
+if __name__ == '__main__':
+   import pytest
+   pytest.main(["./lab06_tests.py"])

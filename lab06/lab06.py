@@ -140,5 +140,98 @@ def totalLength(listOfStrings):
     returns total length of all the strings in a list of strings, 
     False if argument not a list, 0 for empty list
     """
-    if listOfStrings:
-return "stub" 
+    if type(listOfStrings) != list:
+        return False
+    sum = 0
+    for i in listOfStrings:
+        sum += len(i)
+    return sum
+
+### @@@ NOW, write a function called lengthOfEach
+### @@@  Use the accumulator pattern to make a list of each of
+### @@@  the lengths of the words
+### @@@  You'll use a for loop, starting the list as an empty list
+
+def lengthOfEach(listOfStrings):
+    """
+    given list of strings, returns list of ints correponding 
+    to length of each string, otherwise False.
+    empty list yields empty list.
+    
+    """
+    if type(listOfStrings) != list:
+        return False
+    intList = []
+    for i in listOfStrings:
+        if type(i) != str:
+            return False
+        intList += [len(i)]
+    return intList
+   
+
+### @@@ NOW, write a function called countEvens
+### @@@ Use the accumulator pattern, starting at zero
+### @@@  and add one each time you find an even number
+
+
+def countEvens(listOfInts):
+    """
+    given a list of ints, counts even ints in list.  
+    Otherwise, returns False.
+  
+    returns 0 for empty list, or for a list of ints with no evens in it.
+    """
+    if not isListOfIntegers(listOfInts):
+        return False
+    count = 0
+    for i in listOfInts:
+        if i % 2 == 0:
+            count += 1 
+    return count
+
+ 
+### @@@ NOW, write a function called onlyEvens
+### @@@ Use the accumulator pattern, starting with an empty list.
+### @@@ Use a for loop to traverse the list.  Each time you find an item
+### @@@  if it isn't an int, return False---otherwise, if it is even, add
+### @@@  it to your accumulated list.
+
+
+def onlyEvens(listOfInts):
+    """
+    given a list of ints, return new list with only the even ones.  
+    Otherwise, return false.
+    empty list yields empty list
+    """
+    if not isListOfIntegers(listOfInts):
+        return False
+    evenList = []
+    for i in listOfInts:
+        if i % 2 == 0:
+            evenList += [i]
+    return evenList
+    
+ 
+def test_onlyEvens_1():
+   assert onlyEvens('1')==False
+
+def test_onlyEvens_1():
+   assert onlyEvens(['a','b'])==False
+
+def test_onlyEvens_1():
+   assert onlyEvens([])==[]
+
+def test_onlyEvens_1():
+   assert onlyEvens([1,2,3,4,5])==[2, 4]
+
+def test_onlyEvens_1():
+   assert onlyEvens([1])==[]
+
+def test_onlyEvens_1():
+   assert onlyEvens([1,3])==[]
+
+def test_onlyEvens_1():
+   assert onlyEvens([3,2])==[2]
+
+def test_onlyEvens_1():
+   assert onlyEvens([2,3,4])==[2, 4]

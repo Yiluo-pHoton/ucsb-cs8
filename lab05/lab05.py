@@ -3,11 +3,19 @@ import turtle
 from math import *
 import random
 
+#######################################################################################################
+##############                               Initiate                                 #################
+#######################################################################################################
+
 if __name__ == "__main__":
     t = turtle.Turtle()
     t.speed(0)
     s = t.getscreen()
 
+#######################################################################################################
+##############                       Fundmental Draw Functions                         ################
+#######################################################################################################
+    
 def drawRectangle(width, height, tilt, penColor, fillColor):
     """
     draw rectangle. given width, height, penColor, and fillColor
@@ -58,6 +66,10 @@ def drawTriangle(base, height, tilt, penColor, fillColor):
     t.goto(x_start, y_start)
     t.end_fill()
 
+#######################################################################################################
+##############                        Draw Inidividual Object                          ################
+#######################################################################################################
+    
 def drawTree(height, color):
     """
     This function draws a tree with a specific height and color
@@ -81,26 +93,6 @@ def drawTree(height, color):
         drawTriangle(tri_base, tri_height, 0, color, color)
         t.up()
         t.goto(tri_x_start, t.ycor() + tri_base_diff)
-
-def drawForest(tree_num):
-    '''
-    draws a collection of trees placed at random locations within a rectangular region
-    '''
-    tree_x_diff = s.screensize()[0] / (tree_num / 2)
-    screen_left = -s.screensize()[0]
-    x_start = screen_left
-    y_start = 0
-    shades_of_green =["#006400", "#556b2f", "#8fbc8f", "#2e8b57", "#3cb371", "#20b2aa", "#32cd32"]
-
-    t.up()
-    t.goto(x_start, y_start)
-    t.down()
-    
-    for i in range(1, tree_num + 1):
-        t.down()
-        drawTree(random.randint(150, 250), random.choice(shades_of_green))
-        t.up()
-        t.goto(x_start + i * tree_x_diff + random.randint(10, 40), y_start + random.randint(-100, 100))
 
 def drawHut():
     '''
@@ -133,7 +125,30 @@ def drawHut():
                       tilt, random.choice(shades_of_black), random.choice(shades_of_brown))
         t.up()
         t.goto(x_start + plank_width * plank_number / 2.8, y_start + plank_height * 1.5 + random.randint(-5, 5))
-        
+
+#######################################################################################################
+##############                         Draw Multiple Objects                           ################
+#######################################################################################################
+
+def drawForest(tree_num):
+    '''
+    draws a collection of trees placed at random locations within a rectangular region
+    '''
+    tree_x_diff = s.screensize()[0] / (tree_num / 2)
+    screen_left = -s.screensize()[0]
+    x_start = screen_left
+    y_start = 0
+    shades_of_green =["#006400", "#556b2f", "#8fbc8f", "#2e8b57", "#3cb371", "#20b2aa", "#32cd32"]
+
+    t.up()
+    t.goto(x_start, y_start)
+    t.down()
+    
+    for i in range(1, tree_num + 1):
+        t.down()
+        drawTree(random.randint(150, 250), random.choice(shades_of_green))
+        t.up()
+        t.goto(x_start + i * tree_x_diff + random.randint(10, 40), y_start + random.randint(-100, 100))
 
 def drawVillage():
     '''
@@ -165,13 +180,16 @@ def randomPlay():
         radius = 200 + random.randint(-50, 50)
         x = radius * cos(i * 10 * pi / 180)
         y = radius * sin(i * 10 * pi / 180)
-        t.goto(x, y)
-        t.down()
         tilt = 0
         color = random.choice(shades_of_green)
+        
+        t.goto(x, y)
+        t.down()
         drawTriangle(50, 50, tilt, "black", color)
 
-############# Test drawing ############
+#######################################################################################################
+##############                          Test Drawing Objects                          #################
+#######################################################################################################
         
 def testdrawTree():
     t.up()
@@ -182,18 +200,21 @@ def testdrawTree():
 
 def testRectangle():
     drawRectangle(50, 100, 0, "red", "")
-
     t.seth(0)
     t.up()
     t.forward(200)
     t.down()
 
     drawRectangle(50, 100, 20, "green", "yellow")
-
     t.seth(0)
     t.up()
     t.forward(200)
     t.down()
 
-drawForest(random.randint(15, 20))
-drawVillage()
+#######################################################################################################
+##############                    Main Draw Village and Forest                        #################
+#######################################################################################################
+    
+if __name__ == "__main__":
+    drawForest(random.randint(15, 20))
+    drawVillage()
